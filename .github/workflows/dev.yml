@@ -42,4 +42,4 @@ jobs:
             cd /var/www
             mkdir ${{ secrets.PROJECT_FOLDER }}
             mv ${{ secrets.PROJECT_FOLDER }}-new-version/* ${{ secrets.PROJECT_FOLDER }}/
-          #  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build --no-deps -d ${{ secrets.APP_NAME }}
+            docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build --no-deps -d ${{ secrets.APP_NAME }}
