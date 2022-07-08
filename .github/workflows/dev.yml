@@ -38,6 +38,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           command: |
-           cd /var/www/${{ secrets.PROJECT_FOLDER }}
-           docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build --no-deps -d ${{ secrets.APP_NAME }}
-            
+            cd /var/www/${{ secrets.PROJECT_FOLDER }}
+            docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build --no-deps -d ${{ secrets.APP_NAME }}
