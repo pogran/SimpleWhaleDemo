@@ -28,7 +28,7 @@ jobs:
       # mb need check folder if it exists and after this drop
 
       - name: Deploy with rsync
-        run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/${{ secrets.PROJECT_FOLDER }}-new-version/
+        run: rsync --exclude=".git" -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/${{ secrets.PROJECT_FOLDER }}-new-version/
 
       - name: Rebuild and restart container
         uses: fifsky/ssh-action@master
