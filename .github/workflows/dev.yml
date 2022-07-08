@@ -31,13 +31,14 @@ jobs:
         run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/${{ secrets.PROJECT_FOLDER }}/
 
       - name: Rebuild and restart container
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: |
-            cd /var/www/${{ secrets.PROJECT_FOLDER }}
+          script: whoami
+          #script: |
+          #  cd /var/www/${{ secrets.PROJECT_FOLDER }}
           #  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build --no-deps -d ${{ secrets.APP_NAME }}
             
