@@ -12,4 +12,4 @@ Build me: `docker build -t ushamandya/whale-example .`
 - docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file ./config/dev.env up -d = first start
 
 # config
-create .env file from .env.example
+create .env file from .env.example and change path --env-file

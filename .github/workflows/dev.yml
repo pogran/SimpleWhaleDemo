@@ -42,5 +42,6 @@ jobs:
             rm -rf /var/www/${{ secrets.PROJECT_FOLDER }}/current
             mkdir current
             mv new-version/* current/
+            rm -rf new-version
             cd current
-          #  docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file ./../config/.env up --build --no-deps -d ${{ secrets.APP_NAME }}
+          #  docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file ./../config-env/.env up --build --no-deps -d ${{ secrets.APP_NAME }}
