@@ -2,3 +2,14 @@ services:
   app:
     ports:
     - 80:80
+
+  db:
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ${DB_PATH}:/data
+
+  phpmyadmin:
+    ports:
+    - 8080:7070

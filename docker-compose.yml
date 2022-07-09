@@ -4,3 +4,13 @@ services:
   app:
     container_name: whale_app
     build: .
+
+  db:
+    image: mariadb:10.8.3
+    restart: always
+  
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
