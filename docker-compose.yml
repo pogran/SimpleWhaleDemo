@@ -6,10 +6,12 @@ services:
     build: .
 
   db:
+    container_name: mariadb
     image: mariadb:10.8.3
     restart: always
   
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin
     restart: always
     environment:
