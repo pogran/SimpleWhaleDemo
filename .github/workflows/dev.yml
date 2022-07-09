@@ -38,9 +38,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           command: |
-            rm -rf /var/www/${{ secrets.PROJECT_FOLDER }}
-            cd /var/www
-            mkdir ${{ secrets.PROJECT_FOLDER }}
-            mv ${{ secrets.PROJECT_FOLDER }}-new-version/* ${{ secrets.PROJECT_FOLDER }}/
-            cd ${{ secrets.PROJECT_FOLDER }}
-          #  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build --no-deps -d ${{ secrets.APP_NAME }}
+            cd /var/www/${{ secrets.PROJECT_FOLDER }}
+            rm -rf /var/www/${{ secrets.PROJECT_FOLDER }}/current
+            mkdir current
+            mv new-version/* current/
+            cd current
+          #  docker-compose -f docker-compose.yml -f docker-compose.prod.yml --env-file ./../config/.env up --build --no-deps -d ${{ secrets.APP_NAME }}

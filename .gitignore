@@ -1,3 +1,2 @@
-.env
-.dev.env
-example.env
+config/.env
+config/dev.env
