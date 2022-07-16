@@ -9,6 +9,10 @@ services:
     container_name: mariadb
     image: mariadb:10.8.3
     restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ${DB_PATH}:/data
   
   phpmyadmin:
     container_name: phpmyadmin
